@@ -1,50 +1,49 @@
 const product = [
     {
-      id: 0,
-      Image: 'res/chair1.jpeg',
-      title: 'comfy chair',
-      price: 250,
+        id: 0,
+        image: 'image/chair1.jpeg',
+        title: 'comfy chair',
+        price: 220,
     },
     {
         id: 1,
-        Image:'res/chair2.jpeg',
-        title:'bamboo chair',
-        price: 360,
+        image: 'image/chair2.jpeg',
+        title: 'bamboo chair',
+        price: 260,
     },
     {
-    id: 2,
-    Image:'res/minitable.jpeg',
-    title:'mini table',
-    price: 200,
+        id: 2,
+        image: 'image/mini table.jpeg',
+        title: 'mini table',
+        price: 230,
     },
     {
         id: 3,
-        Image: 'res/mirror.jpeg',
+        image: 'image/mirror.jpeg',
         title: 'mirror',
-        price: 160,
+        price: 150,
     }
 ];
 const categories = [...new Set(product.map((item)=>
-    { return item}))]
-    let i = 0;
-    document.getElementById('robot').innerHTML = categories.map((item)=>
+    {return item}))]
+    let i=0;
+document.getElementById('robot').innerHTML = categories.map((item)=>
 {
     var {image, title, price} = item;
     return(
         `<div class='box'>
-        <div class='img-box'>
-            <img class='images' src=${image}></img>
-        </div>
-    <div class='bottom'>
-    <p>${title}</p>
-    <h2>$ ${price}.00</h2>`+
-    "<button onclick='addtocart("+(i++)+")'>Add to cart</button>"+
-    `</div>
-    </div>`
-)
+            <div class='img-box'>
+                <img class='images' src=${image}></img>
+            </div>
+        <div class='bottom'>
+        <p>${title}</p>
+        <h2>$ ${price}.00</h2>`+
+        "<button onclick='addtocart("+(i++)+")'>Add to cart</button>"+
+        `</div>
+        </div>`
+    )
 }).join('')
 var cart =[];
-
 function addtocart(a){
     cart.push({...categories[a]});
     displaycart();
